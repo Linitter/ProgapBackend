@@ -213,7 +213,7 @@ class ResourceObjectController {
         forecastDate, // Data de previsão
         acquisitionMode, // modo de aquisição
         executedValue, // valor executado
-        destinationObjects, // destinações do obejto
+        //destinationObjects, // destinações do obejto
         stateTreasury, //Tesouro Estadual
         stateAmendment, //Emenda Estadual
         covenants, // Convenio
