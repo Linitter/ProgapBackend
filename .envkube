@@ -1,7 +1,0 @@
-PORT="${KUBE_APP_PORT}"
-# quando for executar a aplicação em container mudar o DB_HOST para db_servidores
-DB_HOST="${KUBE_DB_HOST}"
-DB_DATABASE="${KUBE_DB_DATABASE}"
-DB_USER="${KUBE_DB_USERNAME}"
-DB_PASSWORD="${KUBE_DB_PASSWORD}"
-DB_PORT="${KUBE_DB_PORT}"

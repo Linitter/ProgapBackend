@@ -26,7 +26,6 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 COPY package-lock.json ./
-COPY .envkube .env
 
 RUN npm install
 
