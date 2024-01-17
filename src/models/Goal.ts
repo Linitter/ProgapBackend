@@ -26,6 +26,9 @@ export class Goal {
   @Column({ nullable: true })
   balance: string;
 
+  @Column({ nullable: true })
+  executedValue: string;
+
   @ManyToOne(() => BottomToBottom, bottomToBottom => bottomToBottom.goal)
   bottomToBottom: BottomToBottom;
 

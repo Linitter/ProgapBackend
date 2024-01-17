@@ -5,12 +5,18 @@ import { Goal } from '../models/Goal';
 
 class GoalController {
   async create(request: Request, response: Response, next: NextFunction) {
-    const { description, predictedValue, balance, bottomToBottom } =
-      request.body;
+    const {
+      description,
+      predictedValue,
+      balance,
+      bottomToBottom,
+      executedValue,
+    } = request.body;
     const schema = yup.object().shape({
       description: yup.string().nullable(),
       predictedValue: yup.string().nullable(),
       balance: yup.string().nullable(),
+      executedValue: yup.string().nullable(),
     });
 
     try {
@@ -35,6 +41,7 @@ class GoalController {
       predictedValue, // Valor previsto
       balance, // saldo
       bottomToBottom, // id fundo a fundo
+      executedValue,
     });
 
     await goalRepository.save(goal);
@@ -64,14 +71,20 @@ class GoalController {
   }
 
   async update(request: Request, response: Response, next: NextFunction) {
-    const { description, predictedValue, balance, bottomToBottom } =
-      request.body;
+    const {
+      description,
+      predictedValue,
+      balance,
+      bottomToBottom,
+      executedValue,
+    } = request.body;
     const id = request.params.id;
 
     const schema = yup.object().shape({
       description: yup.string().nullable(),
       predictedValue: yup.string().nullable(),
       balance: yup.string().nullable(),
+      executedValue: yup.string().nullable(),
     });
 
     try {
@@ -93,6 +106,7 @@ class GoalController {
         predictedValue, // Valor previsto
         balance, // saldo
         bottomToBottom, // id fundo a fundo
+        executedValue,
       },
     );
 
