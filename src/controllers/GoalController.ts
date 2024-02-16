@@ -11,12 +11,14 @@ class GoalController {
       balance,
       bottomToBottom,
       executedValue,
+      totalValueExecuted, //valor total exec
     } = request.body;
     const schema = yup.object().shape({
       description: yup.string().nullable(),
       predictedValue: yup.string().nullable(),
       balance: yup.string().nullable(),
       executedValue: yup.string().nullable(),
+      totalValueExecuted: yup.string().nullable(),
     });
 
     try {
@@ -42,6 +44,7 @@ class GoalController {
       balance, // saldo
       bottomToBottom, // id fundo a fundo
       executedValue,
+      totalValueExecuted, //valor total exec
     });
 
     await goalRepository.save(goal);
@@ -77,6 +80,7 @@ class GoalController {
       balance,
       bottomToBottom,
       executedValue,
+      totalValueExecuted, //valor total exec
     } = request.body;
     const id = request.params.id;
 
@@ -85,6 +89,7 @@ class GoalController {
       predictedValue: yup.string().nullable(),
       balance: yup.string().nullable(),
       executedValue: yup.string().nullable(),
+      totalValueExecuted: yup.string().nullable(),
     });
 
     try {
@@ -107,6 +112,7 @@ class GoalController {
         balance, // saldo
         bottomToBottom, // id fundo a fundo
         executedValue,
+        totalValueExecuted, //valor total exec
       },
     );
 

@@ -14,6 +14,7 @@ class FddController {
       globalValue, // Valor global
       description, // Descrição
       balance, // Saldo
+      totalValueExecuted, //valor total exec
     } = request.body;
 
     const schema = yup.object().shape({
@@ -25,6 +26,7 @@ class FddController {
       globalValue: yup.string().nullable(),
       description: yup.string().nullable(),
       balance: yup.string().nullable(),
+      totalValueExecuted: yup.string().nullable(),
     });
 
     try {
@@ -46,6 +48,7 @@ class FddController {
       globalValue, // Valor global
       description, // Descrição
       balance, // Saldo
+      totalValueExecuted, //valor total exec
     });
 
     await fddRepository.save(fdd);
@@ -88,6 +91,7 @@ class FddController {
       globalValue, // Valor global
       description, // Descrição
       balance, // Saldo
+      totalValueExecuted, //valor total exec
     } = request.body;
     const id = request.params.id;
 
@@ -100,6 +104,7 @@ class FddController {
       globalValue: yup.string().nullable(),
       description: yup.string().nullable(),
       balance: yup.string().nullable(),
+      totalValueExecuted: yup.string().nullable(),
     });
 
     try {
@@ -123,6 +128,7 @@ class FddController {
         globalValue, // Valor global
         description, // Descrição
         balance, // Saldo
+        totalValueExecuted, //valor total exec
       },
     );
 

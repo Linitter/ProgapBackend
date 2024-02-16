@@ -29,6 +29,10 @@ export class Goal {
   @Column({ nullable: true })
   executedValue: string;
 
+  //valor total executado
+  @Column({ nullable: true })
+  totalValueExecuted: string;
+
   @ManyToOne(() => BottomToBottom, bottomToBottom => bottomToBottom.goal)
   bottomToBottom: BottomToBottom;
 

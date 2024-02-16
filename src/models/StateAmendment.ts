@@ -34,6 +34,9 @@ export class StateAmendment {
   //saldo
   @Column({ nullable: true })
   balance: string;
+  //valor total executado
+  @Column({ nullable: true })
+  totalValueExecuted: string;
 
   @ManyToOne(() => Author, author => author.stateAmendment, { eager: true })
   authors: Author[];

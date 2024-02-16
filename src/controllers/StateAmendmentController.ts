@@ -13,6 +13,7 @@ class StateAmendmentController {
       description, //decrição
       balance, //saldo
       authors, // auores
+      totalValueExecuted, //valor total exec
     } = request.body;
 
     const schema = yup.object().shape({
@@ -22,6 +23,7 @@ class StateAmendmentController {
       transferAmount: yup.string().nullable(),
       description: yup.string().nullable(),
       balance: yup.string().nullable(),
+      totalValueExecuted: yup.string().nullable(),
     });
 
     try {
@@ -43,6 +45,7 @@ class StateAmendmentController {
       description, //decrição
       balance, //saldo
       authors, // auores
+      totalValueExecuted, //valor total exec
     });
 
     await stateAmendmentRepository.save(stateAmendment);
@@ -83,6 +86,7 @@ class StateAmendmentController {
       description, //decrição
       balance, //saldo
       authors, // auores
+      totalValueExecuted, //valor total exec
     } = request.body;
     const id = request.params.id;
 
@@ -93,6 +97,7 @@ class StateAmendmentController {
       transferAmount: yup.string().nullable(),
       description: yup.string().nullable(),
       balance: yup.string().nullable(),
+      totalValueExecuted: yup.string().nullable(),
     });
 
     try {
@@ -118,6 +123,7 @@ class StateAmendmentController {
         description, //decrição
         balance, //saldo
         authors, // auores
+        totalValueExecuted, //valor total exec
       },
     );
 

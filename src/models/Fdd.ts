@@ -38,6 +38,9 @@ export class Fdd {
   // Saldo
   @Column({ nullable: true })
   balance: string;
+  //valor total executado
+  @Column({ nullable: true })
+  totalValueExecuted: string;
 
   @OneToMany(() => ResourceObject, resourceObjects => resourceObjects.fdd)
   resourceObjects: ResourceObject[];

@@ -45,6 +45,9 @@ export class Covenant {
   // Saldo
   @Column({ nullable: true })
   balance: string;
+  //valor total executado
+  @Column({ nullable: true })
+  totalValueExecuted: string;
 
   @OneToMany(() => CovenantAuthor, covenantAuthor => covenantAuthor.covenants)
   covenantAuthor: CovenantAuthor[];

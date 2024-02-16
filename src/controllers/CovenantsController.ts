@@ -18,6 +18,7 @@ class CovenantsController {
       description, // Descrição
       balance, // Saldo
       covenantAuthor, //Array que sera injetado dados de autor e valor de contribuição
+      totalValueExecuted, //valor total exec
     } = request.body;
 
     const schema = yup.object().shape({
@@ -31,6 +32,7 @@ class CovenantsController {
       globalValue: yup.string().nullable(),
       description: yup.string().nullable(),
       balance: yup.string().nullable(),
+      totalValueExecuted: yup.string().nullable(),
     });
 
     try {
@@ -54,6 +56,7 @@ class CovenantsController {
       globalValue, // Valor Golbal
       description, // Descrição
       balance, // Saldo
+      totalValueExecuted, //valor total exec
     });
 
     await covenantsRepository.save(covenants);
@@ -124,6 +127,7 @@ class CovenantsController {
       description,
       balance,
       covenantAuthor,
+      totalValueExecuted, //valor total exec
     } = request.body;
     const id = request.params.id;
 
@@ -138,6 +142,7 @@ class CovenantsController {
       globalValue: yup.string().nullable(),
       description: yup.string().nullable(),
       balance: yup.string().nullable(),
+      totalValueExecuted: yup.string().nullable(),
     });
 
     try {
@@ -164,6 +169,7 @@ class CovenantsController {
         globalValue, // Valor Golbal
         description, // Descrição
         balance, // Saldo
+        totalValueExecuted, //valor total exec
       },
     );
 
