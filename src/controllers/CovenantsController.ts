@@ -19,6 +19,7 @@ class CovenantsController {
       balance, // Saldo
       covenantAuthor, //Array que sera injetado dados de autor e valor de contribuição
       totalValueExecuted, //valor total exec
+      position,
     } = request.body;
 
     const schema = yup.object().shape({
@@ -57,6 +58,7 @@ class CovenantsController {
       description, // Descrição
       balance, // Saldo
       totalValueExecuted, //valor total exec
+      position,
     });
 
     await covenantsRepository.save(covenants);
@@ -128,6 +130,7 @@ class CovenantsController {
       balance,
       covenantAuthor,
       totalValueExecuted, //valor total exec
+      position,
     } = request.body;
     const id = request.params.id;
 
@@ -170,6 +173,7 @@ class CovenantsController {
         description, // Descrição
         balance, // Saldo
         totalValueExecuted, //valor total exec
+        position,
       },
     );
 

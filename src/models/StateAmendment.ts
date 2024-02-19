@@ -16,6 +16,8 @@ import { Author } from './Author';
 export class StateAmendment {
   @PrimaryColumn()
   readonly id: string; // o readonly para não deixar quem tem informação do id mudar o valor, nesse caso o controller poderá só ler
+  @Column({ nullable: true })
+  position: number;
   //fonte
   @Column({ nullable: true })
   source: string;

@@ -15,6 +15,8 @@ import { CovenantAuthor } from './CovenantAuthor';
 export class Covenant {
   @PrimaryColumn()
   readonly id: string; // o readonly para não deixar quem tem informação do id mudar o valor, nesse caso o controller poderá só ler
+  @Column({ nullable: true })
+  position: number;
   // Fonte
   @Column({ nullable: true })
   source: string;

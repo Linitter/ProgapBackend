@@ -15,6 +15,7 @@ class FddController {
       description, // Descrição
       balance, // Saldo
       totalValueExecuted, //valor total exec
+      position,
     } = request.body;
 
     const schema = yup.object().shape({
@@ -49,6 +50,7 @@ class FddController {
       description, // Descrição
       balance, // Saldo
       totalValueExecuted, //valor total exec
+      position,
     });
 
     await fddRepository.save(fdd);
@@ -92,6 +94,7 @@ class FddController {
       description, // Descrição
       balance, // Saldo
       totalValueExecuted, //valor total exec
+      position,
     } = request.body;
     const id = request.params.id;
 
@@ -129,6 +132,7 @@ class FddController {
         description, // Descrição
         balance, // Saldo
         totalValueExecuted, //valor total exec
+        position,
       },
     );
 

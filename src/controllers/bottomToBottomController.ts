@@ -6,7 +6,7 @@ import { BottomToBottom } from '../models/BottomToBottom';
 
 class BottomToBottomController {
   async create(request: Request, response: Response, next: NextFunction) {
-    const { source, year, amount, axle } = request.body;
+    const { source, year, amount, axle, position } = request.body;
 
     const schema = yup.object().shape({
       source: yup.string().nullable(),
@@ -30,6 +30,7 @@ class BottomToBottomController {
       year /*ano*/,
       amount /*quantidade*/,
       axle /*eixo*/,
+      position,
     });
 
     await bottomToBottomRepository.save(bottomToBottom);
@@ -60,7 +61,7 @@ class BottomToBottomController {
   }
 
   async update(request: Request, response: Response, next: NextFunction) {
-    const { source, year, amount, balance, axle } = request.body;
+    const { source, year, amount, balance, axle, position } = request.body;
     const id = request.params.id;
 
     const schema = yup.object().shape({
@@ -88,6 +89,7 @@ class BottomToBottomController {
         year /*ano*/,
         amount /*quantidade*/,
         axle /*eixo*/,
+        position,
       },
     );
 
