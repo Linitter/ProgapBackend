@@ -15,7 +15,15 @@ export async function verifyToken(
   }
 
   try {
-    const validationUrl = `https://ssows.ssp.go.gov.br/validate?token=${token}`;
+    let validationUrl = `https://ssows-h.ssp.go.gov.br/validate?token=${token}`;
+
+    if (
+      window.location.hostname.indexOf(
+        `https://progap.policiacivil.go.gov.br`,
+      ) > -1
+    ) {
+      validationUrl = `https://ssows.ssp.go.gov.br/validate?token=${token}`;
+    }
 
     const apiResponse = await axios.get(validationUrl);
     if (!apiResponse.data.token || apiResponse.data.token === '') {
