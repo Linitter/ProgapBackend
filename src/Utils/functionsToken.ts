@@ -15,7 +15,7 @@ export async function verifyToken(
   }
 
   try {
-    const validationUrl = `https://ssows-h.ssp.go.gov.br/validate?token=${token}`;
+    const validationUrl = `https://ssows.ssp.go.gov.br/validate?token=${token}`;
 
     const apiResponse = await axios.get(validationUrl);
     if (!apiResponse.data.token || apiResponse.data.token === '') {
