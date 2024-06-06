@@ -22,7 +22,7 @@ export async function verifyToken(
         `https://progap.policiacivil.go.gov.br`,
       ) > -1
     ) {
-      validationUrl = `https://ssows-h.ssp.go.gov.br/validate?token=${token}`;
+      validationUrl = `https://ssows.ssp.go.gov.br/validate?token=${token}`;
     }
 
     const apiResponse = await axios.get(validationUrl);
