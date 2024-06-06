@@ -5,13 +5,18 @@ import jwt from 'jsonwebtoken';
 import { Axle } from '../models/Axle';
 
 class AxleController {
+  //função create
+
   async create(request: Request, response: Response, next: NextFunction) {
     const { name, description } = request.body;
+
+    //verifica tipagem
     const schema = yup.object().shape({
       name: yup.string(),
       description: yup.string(),
     });
 
+    //erro caso tipagem esteja incorreta
     try {
       await schema.validate(request.body, { abortEarly: false });
     } catch (err) {
@@ -19,8 +24,9 @@ class AxleController {
         .status(400)
         .json({ status: 'Erro de validação dos campos!' });
     }
-
+    //busca classe
     const axleRepository = APPDataSource.getRepository(Axle);
+    //verifica se já existe com esse nome
     const axleAlreadyExists = await axleRepository.findOne({
       where: { name: name },
     });
@@ -29,16 +35,18 @@ class AxleController {
       return response.status(400).json({ status: 'eixo já existe!' });
     }
 
+    //cria o author
     const axle = axleRepository.create({
       name,
       description,
     });
 
+    //salva author
     await axleRepository.save(axle);
-
     return response.status(201).json(axle);
   }
 
+  //lista todos
   async all(request: Request, response: Response, next: NextFunction) {
     const axleRepository = APPDataSource.getRepository(Axle);
 
@@ -51,6 +59,7 @@ class AxleController {
     return response.json(all);
   }
 
+  //lista um
   async one(request: Request, response: Response, next: NextFunction) {
     const axleRepository = APPDataSource.getRepository(Axle);
 
@@ -61,6 +70,7 @@ class AxleController {
     return response.json(one);
   }
 
+  //atualiza um
   async update(request: Request, response: Response, next: NextFunction) {
     const { name, description } = request.body;
     const id = request.params.id;
@@ -80,6 +90,7 @@ class AxleController {
 
     const axleRepository = APPDataSource.getRepository(Axle);
 
+    //aonde tiver o id igual ao recebido ele edita
     const axle = await axleRepository.update(
       {
         id,
