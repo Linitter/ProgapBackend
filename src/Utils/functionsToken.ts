@@ -19,7 +19,7 @@ export async function verifyToken(
 
     if (
       window.location.hostname.indexOf(
-        `https://progap.policiacivil.go.gov.br`,
+        `https://progap.policiacivil.go.gov.br/`,
       ) > -1
     ) {
       validationUrl = `https://ssows.ssp.go.gov.br/validate?token=${token}`;
