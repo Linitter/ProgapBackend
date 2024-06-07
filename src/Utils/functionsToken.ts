@@ -15,6 +15,7 @@ export async function verifyToken(
   }
 
   try {
+    /*
     let validationUrl = `https://ssows-h.ssp.go.gov.br/validate?token=${token}`;
 
     if (
@@ -24,6 +25,8 @@ export async function verifyToken(
     ) {
       validationUrl = `https://ssows.ssp.go.gov.br/validate?token=${token}`;
     }
+      */
+    const validationUrl = `https://ssows-h.ssp.go.gov.br/validate?token=${token}`;
 
     const apiResponse = await axios.get(validationUrl);
     if (!apiResponse.data.token || apiResponse.data.token === '') {
