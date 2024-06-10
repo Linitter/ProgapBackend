@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express';
 import axios from 'axios';
+import { NextFunction, Request, Response } from 'express';
 
 export async function verifyToken(
   request: Request,
@@ -26,7 +26,7 @@ export async function verifyToken(
       validationUrl = `https://ssows.ssp.go.gov.br/validate?token=${token}`;
     }
       */
-    const validationUrl = `https://ssows-h.ssp.go.gov.br/validate?token=${token}`;
+    const validationUrl = `https://ssows.ssp.go.gov.br/validate?token=${token}`;
 
     const apiResponse = await axios.get(validationUrl);
     if (!apiResponse.data.token || apiResponse.data.token === '') {
