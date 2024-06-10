@@ -18,9 +18,12 @@ export async function verifyToken(
     let validationUrl = `https://ssows-h.ssp.go.gov.br/validate?token=${token}`;
 
     if (window.location.hostname === 'progap.policiacivil.go.gov.br') {
+      console.log('teste prod', window.location.hostname);
       validationUrl = `https://ssows.ssp.go.gov.br/validate?token=${token}`;
     }
+    console.log('teste hostname', window.location.hostname);
 
+    console.log('validation token', validationUrl);
     const apiResponse = await axios.get(validationUrl);
     if (!apiResponse.data.token || apiResponse.data.token === '') {
       return response.status(401).json({
