@@ -9,8 +9,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid'; // Importando o uuid v4 e renomeando pra uuid
-import { Nature } from './Nature';
 import { Model } from './Model';
+import { Nature } from './Nature';
 import { ResourceObject } from './ResourceObject';
 
 @Entity('objects') // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
@@ -24,10 +24,16 @@ export class Objects {
   @OneToMany(() => ResourceObject, resourceObjects => resourceObjects.objects)
   resourceObjects: ResourceObject[];
 
-  @ManyToOne(() => Nature, nature => nature.objects, { eager: true })
+  @ManyToOne(() => Nature, nature => nature.objects, {
+    eager: true,
+    nullable: true,
+  })
   nature: Nature;
 
-  @ManyToOne(() => Model, model => model.objects, { eager: true })
+  @ManyToOne(() => Model, model => model.objects, {
+    eager: true,
+    nullable: true,
+  })
   model: Model;
 
   @DeleteDateColumn()
