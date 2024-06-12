@@ -5,7 +5,7 @@ import { StateTreasury } from '../models/stateTreasury';
 
 class StateTreasuryController {
   async create(request: Request, response: Response, next: NextFunction) {
-    const { source, year, position } = request.body;
+    const { source, year, position, recursoCaptado } = request.body;
     const schema = yup.object().shape({
       source: yup.string(),
       year: yup.string(),
@@ -25,6 +25,7 @@ class StateTreasuryController {
       source,
       year,
       position,
+      recursoCaptado,
     });
 
     await StateTreasuryRepository.save(stateTreasury);
@@ -55,7 +56,7 @@ class StateTreasuryController {
   }
 
   async update(request: Request, response: Response, next: NextFunction) {
-    const { source, year, position } = request.body;
+    const { source, year, position, recursoCaptado } = request.body;
     const id = request.params.id;
 
     const schema = yup.object().shape({
@@ -80,6 +81,7 @@ class StateTreasuryController {
       {
         source,
         year,
+        recursoCaptado,
         position,
       },
     );

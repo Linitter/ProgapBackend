@@ -1,12 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
 import * as yup from 'yup';
 import { APPDataSource } from '../database/data-source';
-import jwt from 'jsonwebtoken';
 import { BottomToBottom } from '../models/BottomToBottom';
 
 class BottomToBottomController {
   async create(request: Request, response: Response, next: NextFunction) {
-    const { source, year, amount, axle, position } = request.body;
+    const { source, year, amount, axle, position, recursoCaptado } =
+      request.body;
 
     const schema = yup.object().shape({
       source: yup.string().nullable(),
@@ -30,6 +30,7 @@ class BottomToBottomController {
       year /*ano*/,
       amount /*quantidade*/,
       axle /*eixo*/,
+      recursoCaptado,
       position,
     });
 
@@ -61,7 +62,8 @@ class BottomToBottomController {
   }
 
   async update(request: Request, response: Response, next: NextFunction) {
-    const { source, year, amount, balance, axle, position } = request.body;
+    const { source, year, amount, balance, axle, position, recursoCaptado } =
+      request.body;
     const id = request.params.id;
 
     const schema = yup.object().shape({
@@ -89,6 +91,7 @@ class BottomToBottomController {
         year /*ano*/,
         amount /*quantidade*/,
         axle /*eixo*/,
+        recursoCaptado,
         position,
       },
     );

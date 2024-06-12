@@ -23,6 +23,9 @@ export class StateTreasury {
   @Column({ nullable: true })
   year: string;
 
+  @Column({ nullable: true })
+  recursoCaptado: boolean;
+
   @OneToMany(
     () => ResourceObject,
     resourceObjects => resourceObjects.stateAmendment,

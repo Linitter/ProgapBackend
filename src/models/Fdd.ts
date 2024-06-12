@@ -44,6 +44,9 @@ export class Fdd {
   @Column({ nullable: true })
   totalValueExecuted: string;
 
+  @Column({ nullable: true })
+  recursoCaptado: boolean;
+
   @OneToMany(() => ResourceObject, resourceObjects => resourceObjects.fdd)
   resourceObjects: ResourceObject[];
 

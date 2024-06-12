@@ -8,8 +8,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid'; // Importando o uuid v4 e renomeando pra uuid
-import { ResourceObject } from './ResourceObject';
 import { CovenantAuthor } from './CovenantAuthor';
+import { ResourceObject } from './ResourceObject';
 //  Convenino
 @Entity('covenants') // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
 export class Covenant {
@@ -50,6 +50,9 @@ export class Covenant {
   //valor total executado
   @Column({ nullable: true })
   totalValueExecuted: string;
+
+  @Column({ nullable: true })
+  recursoCaptado: boolean;
 
   @OneToMany(() => CovenantAuthor, covenantAuthor => covenantAuthor.covenants)
   covenantAuthor: CovenantAuthor[];

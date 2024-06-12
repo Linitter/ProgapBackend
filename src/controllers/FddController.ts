@@ -16,6 +16,7 @@ class FddController {
       balance, // Saldo
       totalValueExecuted, //valor total exec
       position,
+      recursoCaptado,
     } = request.body;
 
     const schema = yup.object().shape({
@@ -50,6 +51,7 @@ class FddController {
       description, // Descrição
       balance, // Saldo
       totalValueExecuted, //valor total exec
+      recursoCaptado,
       position,
     });
 
@@ -95,6 +97,7 @@ class FddController {
       balance, // Saldo
       totalValueExecuted, //valor total exec
       position,
+      recursoCaptado,
     } = request.body;
     const id = request.params.id;
 
@@ -133,6 +136,7 @@ class FddController {
         balance, // Saldo
         totalValueExecuted, //valor total exec
         position,
+        recursoCaptado,
       },
     );
 

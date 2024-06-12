@@ -15,6 +15,7 @@ class StateAmendmentController {
       authors, // auores
       totalValueExecuted, //valor total exec
       position,
+      recursoCaptado,
     } = request.body;
 
     const schema = yup.object().shape({
@@ -48,6 +49,7 @@ class StateAmendmentController {
       authors, // auores
       totalValueExecuted, //valor total exec
       position,
+      recursoCaptado,
     });
 
     await stateAmendmentRepository.save(stateAmendment);
@@ -90,6 +92,7 @@ class StateAmendmentController {
       authors, // auores
       totalValueExecuted, //valor total exec
       position,
+      recursoCaptado,
     } = request.body;
     const id = request.params.id;
 
@@ -128,6 +131,7 @@ class StateAmendmentController {
         authors, // auores
         totalValueExecuted, //valor total exec
         position,
+        recursoCaptado,
       },
     );
 

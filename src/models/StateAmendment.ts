@@ -9,8 +9,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid'; // Importando o uuid v4 e renomeando pra uuid
-import { ResourceObject } from './ResourceObject';
 import { Author } from './Author';
+import { ResourceObject } from './ResourceObject';
 //Emmenda Estadual
 @Entity('stateAmendment') // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
 export class StateAmendment {
@@ -39,6 +39,9 @@ export class StateAmendment {
   //valor total executado
   @Column({ nullable: true })
   totalValueExecuted: string;
+
+  @Column({ nullable: true })
+  recursoCaptado: boolean;
 
   @ManyToOne(() => Author, author => author.stateAmendment, { eager: true })
   authors: Author[];

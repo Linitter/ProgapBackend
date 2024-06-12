@@ -9,8 +9,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid'; // Importando o uuid v4 e renomeando pra uuid
-import { Goal } from './Goal';
 import { Axle } from './Axle';
+import { Goal } from './Goal';
 // Fundo a Fundo
 @Entity('bottomToBottom') // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
 export class BottomToBottom {
@@ -27,6 +27,9 @@ export class BottomToBottom {
   // Qunatidade
   @Column({ nullable: true })
   amount: string;
+
+  @Column({ nullable: true })
+  recursoCaptado: boolean;
 
   @OneToMany(() => Goal, goal => goal.bottomToBottom, { eager: true })
   goal: Goal[];
