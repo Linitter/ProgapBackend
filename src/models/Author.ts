@@ -11,7 +11,7 @@ import { v4 as uuid } from 'uuid'; // Importando o uuid v4 e renomeando pra uuid
 import { CovenantAuthor } from './CovenantAuthor';
 import { StateAmendment } from './StateAmendment';
 //autor
-@Entity('author')
+@Entity('author', { schema: 'progap' })
 export class Author {
   @PrimaryColumn()
   readonly id: string;

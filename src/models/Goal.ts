@@ -12,7 +12,7 @@ import { v4 as uuid } from 'uuid'; // Importando o uuid v4 e renomeando pra uuid
 import { BottomToBottom } from './BottomToBottom';
 import { ResourceObject } from './ResourceObject';
 // Meta
-@Entity('goal')
+@Entity('goal', { schema: 'progap' })
 export class Goal {
   @PrimaryColumn()
   readonly id: string;

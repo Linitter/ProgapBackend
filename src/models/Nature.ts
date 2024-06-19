@@ -10,7 +10,7 @@ import {
 import { v4 as uuid } from 'uuid'; // Importando o uuid v4 e renomeando pra uuid
 import { Objects } from './Objects';
 // Natureza
-@Entity('nature') // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
+@Entity('nature', { schema: 'progap' }) // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
 export class Nature {
   @PrimaryColumn()
   readonly id: string; // o readonly para não deixar quem tem informação do id mudar o valor, nesse caso o controller poderá só ler

@@ -10,7 +10,7 @@ import {
 import { v4 as uuid } from 'uuid'; // Importando o uuid v4 e renomeando pra uuid
 import { BottomToBottom } from './BottomToBottom';
 
-@Entity('axles')
+@Entity('axles', { schema: 'progap' })
 export class Axle {
   @PrimaryColumn()
   readonly id: string;

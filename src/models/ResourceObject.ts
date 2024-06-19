@@ -9,16 +9,16 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid'; // Importando o uuid v4 e renomeando pra uuid
-import { Objects } from './Objects';
-import { Goal } from './Goal';
-import { DeliveryObjects } from './DeliveryObjects';
 import { Covenant } from './Covenant';
+import { DeliveryObjects } from './DeliveryObjects';
 import { DestinationObjects } from './DestinationObjects';
+import { Fdd } from './Fdd';
+import { Goal } from './Goal';
+import { Objects } from './Objects';
 import { StateAmendment } from './StateAmendment';
 import { StateTreasury } from './stateTreasury';
-import { Fdd } from './Fdd';
 
-@Entity('resourceObjects') // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
+@Entity('resourceObjects', { schema: 'progap' }) // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
 export class ResourceObject {
   @PrimaryColumn()
   readonly id: string; // o readonly para não deixar quem tem informação do id mudar o valor, nesse caso o controller poderá só ler

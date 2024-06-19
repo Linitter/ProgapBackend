@@ -13,7 +13,7 @@ import { Model } from './Model';
 import { Nature } from './Nature';
 import { ResourceObject } from './ResourceObject';
 
-@Entity('objects') // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
+@Entity('objects', { schema: 'progap' }) // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
 export class Objects {
   @PrimaryColumn()
   readonly id: string; // o readonly para não deixar quem tem informação do id mudar o valor, nesse caso o controller poderá só ler

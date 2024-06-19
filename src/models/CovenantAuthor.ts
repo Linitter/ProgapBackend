@@ -1,17 +1,17 @@
 import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
   Entity,
   ManyToOne,
   PrimaryColumn,
-  Column,
-  DeleteDateColumn,
-  CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Covenant } from './Covenant';
-import { Author } from './Author';
 import { v4 as uuid } from 'uuid'; // Importando o uuid v4 e renomeando pra uuid
+import { Author } from './Author';
+import { Covenant } from './Covenant';
 // Ligação de autor com convenio
-@Entity('covenantAuthor') // Nome da tabela de junção
+@Entity('covenantAuthor', { schema: 'progap' }) // Nome da tabela de junção
 export class CovenantAuthor {
   @PrimaryColumn()
   readonly id: string; // o readonly para não deixar quem tem informação do id mudar o valor, nesse caso o controller poderá só ler

@@ -12,7 +12,7 @@ import { v4 as uuid } from 'uuid'; // Importando o uuid v4 e renomeando pra uuid
 import { Axle } from './Axle';
 import { Goal } from './Goal';
 // Fundo a Fundo
-@Entity('bottomToBottom') // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
+@Entity('bottomToBottom', { schema: 'progap' }) // Do TypeORM, pois será uma entidade do banco de dados, utilizada no controller
 export class BottomToBottom {
   @PrimaryColumn()
   readonly id: string; // o readonly para não deixar quem tem informação do id mudar o valor, nesse caso o controller poderá só ler
